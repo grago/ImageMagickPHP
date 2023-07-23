@@ -665,14 +665,6 @@ class Command
      */
     public function rawCommand(string $command, bool $append = false): self
     {
-        $msg = <<<'MSG'
-This command is not safe and therefore should not be used, unless you need to use an option that is not supported yet.
-Use at your own risk!
-If you are certain of what you are doing, you can silence this error using the "@" sign on the instruction that executes this method.
-If the option you need is not supported, please open an issue or a pull-request at https://github.com/Orbitale/ImageMagickPHP in order for us to implement the option you need! 😃
-MSG
-;
-        @\trigger_error($msg, \E_STRICT);
 
         if ($append) {
             $this->commandToAppend[] = $command;
