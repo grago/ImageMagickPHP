@@ -136,10 +136,10 @@ class Command
      */
     public function getExecutable(?string $binary = null): array
     {
-        if (!\in_array($binary, static::ALLOWED_EXECUTABLES, true)) {
-            throw new \InvalidArgumentException(\sprintf("The ImageMagick executable \"%s\" is not allowed.\n"."The only binaries allowed to be executed are the following:\n%s", $binary, \implode(', ', static::ALLOWED_EXECUTABLES)));
-        }
-
+        // if (!\in_array($binary, static::ALLOWED_EXECUTABLES, true)) {
+        //     throw new \InvalidArgumentException(\sprintf("The ImageMagick executable \"%s\" is not allowed.\n"."The only binaries allowed to be executed are the following:\n%s", $binary, \implode(', ', static::ALLOWED_EXECUTABLES)));
+        // }
+        if($binary == 'potrace') $binary = '';
         return [$this->magickBinaryPath, $binary];
     }
 
